@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class CollisionAudioPlay : MonoBehaviour
 {
-    public AudioSource sound;
+    public AudioClip saw;
     void Start()
     {
-        sound = GetComponent<AudioSource>();
+        GetComponent<AudioSource> ().clip = saw;
     }
     void Update ()
     {
     }
     void OnCollisionEnter(Collision collision)
     {
+        //GetComponent<AudioSource> ().Play ();
         if(collision.gameObject.tag == "floor")
         {
-            sound.Play();
-            Destroy(collision.gameObject);
+            GetComponent<AudioSource> ().Play ();
+            //gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
-        
+
+        // Debug.Log("Collision game object ");
+        // Debug.Log(collision.gameObject.tag);
     }
     
 }
