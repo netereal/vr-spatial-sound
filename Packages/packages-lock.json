@@ -119,7 +119,7 @@
       }
     },
     "com.unity.xr.arsubsystems": {
-      "version": "2.1.3",
+      "version": "2.1.18",
       "depth": 1,
       "source": "registry",
       "dependencies": {
