@@ -15,14 +15,14 @@ public class CollisionAudioPlay : MonoBehaviour
     void Update ()
     {
     }
-    
-    protected void OnEnable()
-    {
-        m_GrabInteractable = GetComponent<XRGrabInteractable>();
-
-        m_GrabInteractable.firstHoverEntered.AddListener(OnFirstHoverEntered);
-        
-    }
+    //
+    // protected void OnEnable()
+    // {
+    //     m_GrabInteractable = GetComponent<XRGrabInteractable>();
+    //
+    //     m_GrabInteractable.firstHoverEntered.AddListener(OnFirstHoverEntered);
+    //     
+    // }
     
     
     void OnCollisionEnter(Collision collision)
@@ -38,13 +38,13 @@ public class CollisionAudioPlay : MonoBehaviour
         // Debug.Log("Collision game object ");
         // Debug.Log(collision.gameObject.tag);
     }
-
-    protected virtual void OnFirstHoverEntered(HoverEnterEventArgs args)
-    {
-        Debug.Log("-------------------------OnFirstHoverEntered");
-        GetComponent<AudioSource> ().Play ();
-    }
-    
+    //
+    // protected virtual void OnFirstHoverEntered(HoverEnterEventArgs args)
+    // {
+    //     Debug.Log("-------------------------OnFirstHoverEntered");
+    //     GetComponent<AudioSource> ().Play ();
+    // }
+    //
  
 }
   
