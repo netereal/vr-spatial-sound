@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
-public class CollisionAudioPlay : MonoBehaviour
+public class BirdAudioPlay : MonoBehaviour
 {
     public AudioClip saw;
     XRGrabInteractable m_GrabInteractable;
@@ -27,16 +27,16 @@ public class CollisionAudioPlay : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        //GetComponent<AudioSource> ().Play ();
-        if(collision.gameObject.tag == "floor")
-        {
-            GetComponent<AudioSource> ().Play ();
-            //gameObject.SetActive(false);
-            //Destroy(gameObject);
-        }
-
-        // Debug.Log("Collision game object ");
-        // Debug.Log(collision.gameObject.tag);
+        // //GetComponent<AudioSource> ().Play ();
+        // if(collision.gameObject.tag == "floor")
+        // {
+        //     GetComponent<AudioSource> ().Play ();
+        //     //gameObject.SetActive(false);
+        //     //Destroy(gameObject);
+        // }
+        //
+        // // Debug.Log("Collision game object ");
+        // // Debug.Log(collision.gameObject.tag);
     }
 
     protected virtual void OnFirstHoverEntered(HoverEnterEventArgs args)
@@ -44,7 +44,9 @@ public class CollisionAudioPlay : MonoBehaviour
         Debug.Log("-------------------------OnFirstHoverEntered");
         GetComponent<AudioSource> ().Play ();
     }
-    
- 
+    protected void OnDisable()
+    {
+        m_GrabInteractable.firstHoverEntered.RemoveListener(OnFirstHoverEntered);
+        
+    }
 }
-  
